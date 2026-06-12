@@ -82,6 +82,7 @@ func testKMSEncryptionProvidersMigration(ctx context.Context, t testing.TB) {
 		ResourceName:                   "SecretOfLife",
 		EncryptionProviders: library.ShuffleEncryptionProviders([]library.EncryptionProvider{
 			librarykms.DefaultVaultEncryptionProvider(ctx, t),
+			librarykms.SecondaryVaultEncryptionProvider(ctx, t),
 			library.SupportedStaticEncryptionProviders[rand.IntN(len(library.SupportedStaticEncryptionProviders))],
 		}),
 	})
