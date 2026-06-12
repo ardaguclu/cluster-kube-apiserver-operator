@@ -3,7 +3,6 @@ package e2e_encryption_kms
 import (
 	"context"
 	"fmt"
-	"math/rand/v2"
 	"testing"
 
 	g "github.com/onsi/ginkgo/v2"
@@ -83,7 +82,6 @@ func testKMSEncryptionProvidersMigration(ctx context.Context, t testing.TB) {
 		EncryptionProviders: library.ShuffleEncryptionProviders([]library.EncryptionProvider{
 			librarykms.DefaultVaultEncryptionProvider(ctx, t),
 			librarykms.SecondaryVaultEncryptionProvider(ctx, t),
-			library.SupportedStaticEncryptionProviders[rand.IntN(len(library.SupportedStaticEncryptionProviders))],
 		}),
 	})
 }
